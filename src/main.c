@@ -410,7 +410,7 @@ gkrellm_start_timer(gint Hz)
 	if (Hz > 0)
 		{
 		interval = 1000 / Hz;
-		interval = interval * 60 / 63;	/* Compensate for overhead XXX */
+		interval--;	/* Compensate for overhead XXX */
 		timeout_id = g_timeout_add(interval,
 						(GtkFunction) update_monitors,NULL);
 		}
